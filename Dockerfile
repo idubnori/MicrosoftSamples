@@ -17,5 +17,6 @@ RUN msbuild /p:Configuration=Release
 
 
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019 AS runtime
+ARG root_project="aspnetmvcapp"
 WORKDIR /inetpub/wwwroot
 COPY --from=build /app/$root_project/. ./
